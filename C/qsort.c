@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <string.h>
+#include <dirent.h>
 #define MAX 1000
 
 int cmp(const void *a, const void *b){
@@ -18,33 +19,61 @@ void print_array(int *array, int size){
 	}
 	printf("\n");
 }
-long long current_timestamp(){
-	struct timeval time;
-	gettimeofday(&time, NULL);
-	long long milliseconds = time.tv_sec*1000L + time.tv_usec/1000;
-	return milliseconds;
+long current_timestamp(){
+	struct timespec time;
+	clock_gettime(CLOCK_MONOTONIC, &time);
+	return time.tv_nsec/1000;
+}	
+int check_array(int *array, int size){
+	for(int i=1 ; i<size ; i++){
+		if(array[i] < array[i-1]){
+			return 0;
+		}
+	}
+	return 1;
 }
 int main(){
-	//struct timeval start, stop;
-	long long start, end;
-	int i, size = 0;
+	long start, end;
+	int index = 1, size = 0;
+	struct dirent* dir_file;
 	int *input = (int *)malloc(sizeof(int)*MAX);
-	FILE *file = fopen("test_case.txt", "r");
-	while(fscanf(file,"%d",&input[size])==1){
-                size++;
-        }
-        int *array = (int *)malloc(sizeof(int)*size);
-        memcpy(array,input,sizeof(int)*size);
-	printf("\n---Qsort---\n\n");	
-	printf("Original array: ");
-	print_array(array,size);
-	printf("\n");
-	//start = current_timestamp();
-	qsort(array, size, sizeof(int),cmp);
-	//end = current_timestamp();
-	printf("Sorted array: ");
-        print_array(array,size);
-        printf("\n");
-	fclose(file);
+	DIR *dir;
+	if((dir = opendir("../test_case/")) == NULL){
+		fprintf(stderr, "Error: Failed to open testcase directory ...\n");
+		return 1;
+	}
+	char name[100];
+	FILE *file;
+	start = current_timestamp();
+	printf("\n---Built-in qsort---\n");
+	while((dir_file = readdir(dir))){
+		if((!strcmp(dir_file->d_name, ".")) || (!strcmp(dir_file->d_name, ".."))){
+			continue;
+		}
+		printf("Test case %d ...", index);
+		memset(name, 0, sizeof(char)*100);
+		strcat(name, "../test_case/");
+		strcat(name, dir_file->d_name);
+	
+		file = fopen(name, "r");
+		size = 0;
+		while(fscanf(file,"%d",&input[size])==1){
+			size++;
+		}
+
+		int *array = (int *)malloc(sizeof(int)*size);
+		memcpy(array,input,sizeof(int)*size);
+		qsort(array, size, sizeof(int),cmp);
+		if(check_array(array, size)){
+			printf(" Pass!\n");
+		}
+		else{
+			printf(" Fail ...\n");
+		}
+		fclose(file);
+		index++;
+	}
+	end = current_timestamp();
+	printf("time: %09ld msec\n",end - start);
 }
 
