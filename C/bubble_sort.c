@@ -30,11 +30,10 @@ void print_array(int *array, int size){
 	}
 	printf("\n");
 }
-long long current_timestamp(){
-	struct timeval time;
-	gettimeofday(&time, NULL);
-	long long milliseconds = time.tv_sec*1000L + time.tv_usec/1000;
-	return milliseconds;
+long current_timestamp(){
+	struct timespec time;
+	clock_gettime(CLOCK_MONOTONIC, &time);
+	return time.tv_nsec/1000;
 }
 int check_array(int *array, int size){
 	for(int i=1 ; i<size ; i++){
@@ -46,7 +45,7 @@ int check_array(int *array, int size){
 }
 int main(){
 	//struct timeval start, stop;
-	long long start, end;
+	long start, end;
 	int index = 1, size = 0;
 	struct dirent* dir_file;
 	int *input = (int *)malloc(sizeof(int)*MAX);
@@ -93,4 +92,5 @@ int main(){
 		index++;
 	}
 	end = current_timestamp();
+	printf("time: %09ld msec\n",end - start);
 }

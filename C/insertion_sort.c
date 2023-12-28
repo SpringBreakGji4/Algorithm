@@ -24,7 +24,7 @@ void print_array(int *array, int size){
 	}
 	printf("\n");
 }
-long long current_timestamp(){
+long current_timestamp(){
 	struct timespec time;
 	clock_gettime(CLOCK_MONOTONIC, &time);
 	return time.tv_nsec/1000;
