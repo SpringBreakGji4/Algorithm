@@ -1,13 +1,50 @@
 # Algorithm
 ## Sorting
 - Bubble sort
+- [X] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Insertion sort
+- [X] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Selection sort
+- [X] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
+- Shell sort
+- [ ] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Merge sort
+- [X] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Quick sort
+- [X] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Heap sort
+- [ ] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Bucket sort
+- [ ] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 - Radix sort
+- [ ] C
+- [ ] C++
+- [ ] Java
+- [ ] Python
 ## Tree
 - Binary tree
 - Expression tree
