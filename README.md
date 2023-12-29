@@ -47,6 +47,7 @@
 - [ ] Python
 ## Tree
 - Binary tree
+- Prefix tree
 - Expression tree
 - Binary search tree
 - AVL tree
