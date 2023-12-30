@@ -16,7 +16,7 @@
 - [ ] Java
 - [ ] Python
 - Shell sort
-- [ ] C
+- [X] C
 - [ ] C++
 - [ ] Java
 - [ ] Python
