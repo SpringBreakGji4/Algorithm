@@ -1,7 +1,8 @@
 # Algorithm
 ## Sorting
 - Bubble sort
-	- [X] C	- [ ] C++
+	- [X] C
+       	- [ ] C++
 	- [ ] Java
 	- [ ] Python
 - Insertion sort
