@@ -2,7 +2,7 @@
 ## Sorting
 - Bubble sort
 	- [X] C
-       	- [ ] C++
+	- [ ] C++
 	- [ ] Java
 	- [ ] Python
 - Insertion sort
