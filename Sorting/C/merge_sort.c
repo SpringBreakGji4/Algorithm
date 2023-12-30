@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <string.h>
 #include <dirent.h>
-#define MAX 1000
+#define MAX 50000
 
 void merge_sort(int *now_arr,int now_size, int *ans, int ans_size){
     //printf("now size: %d\n",now_size);
@@ -103,6 +103,6 @@ int main(){
 		index++;
 	}
 	end = current_timestamp();
-	printf("time: %09ld msec\n",end - start);
+	printf("time: %ld msec\n",end - start);
 }
 

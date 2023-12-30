@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <string.h>
 #include <dirent.h>
-#define MAX 1000
+#define MAX 50000
 
 void selection_sort(int *array, int size){
 	int smallest_index,i,j,tem;
@@ -70,13 +70,7 @@ int main(){
 
 		int *array = (int *)malloc(sizeof(int)*size);
 		memcpy(array,input,sizeof(int)*size);
-		//printf("Original array: ");
-		//print_array(array,size);
-		//printf("\n");
 		selection_sort(array, size);
-		//printf("Sorted array: ");
-		//print_array(array,size);
-		//printf("\n");
 		if(check_array(array, size)){
 			printf(" Pass!\n");
 		}
@@ -87,6 +81,6 @@ int main(){
 		index++;
 	}
 	end = current_timestamp();
-	printf("time: %09ld msec\n",end - start);
+	printf("time: %ld msec\n",end - start);
 }
 

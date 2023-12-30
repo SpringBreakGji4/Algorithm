@@ -31,7 +31,7 @@
 	- [ ] Java
 	- [ ] Python
 - Heap sort
-	- [ ] C
+	- [X] C
 	- [ ] C++
 	- [ ] Java
 	- [ ] Python

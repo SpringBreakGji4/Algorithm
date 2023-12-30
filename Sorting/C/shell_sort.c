@@ -3,7 +3,8 @@
 #include <sys/time.h>
 #include <string.h>
 #include <dirent.h>
-#define MAX 1000
+#define MAX 50000
+
 void shell_sort(int *array, int size){
 	for(int gap = size/2 ; gap > 0 ; gap /= 2){
 		for(int i=gap ; i<size ; i++){
@@ -79,5 +80,5 @@ int main(){
 		index++;
 	}
 	end = current_timestamp();
-	printf("time: %09ld msec\n",end - start);
+	printf("time: %ld msec\n",end - start);
 }

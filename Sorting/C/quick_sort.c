@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <string.h>
 #include <dirent.h>
-#define MAX 1000
+#define MAX 50000
 
 void swap(int *a, int *b){
 	int tem = *a;
@@ -110,6 +110,6 @@ int main(){
 		index++;
 	}
 	end = current_timestamp();
-	printf("time: %09ld msec\n",end - start);
+	printf("time: %ld msec\n",end - start);
 }
 
