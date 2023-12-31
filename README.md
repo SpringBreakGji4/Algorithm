@@ -68,4 +68,17 @@
 - Maximum flow algorithm
 - Prim's algorithm 
 - Kruskal's algorithm
-
+## Cryptography
+### Symmetric cryptography
+- Shift cipher
+- Mono-alphabetic substitution cipher
+- Polyalphabetic substitution cipher
+- Stream cipher (One-Time pad)
+#### Block cipher
+- DES
+- AES ECB
+- AES CBC
+- AES CTR
+### Asymmetric cryptography
+- ElGamal Encryption
+- RSA
