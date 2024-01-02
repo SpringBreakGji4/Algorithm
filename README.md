@@ -36,7 +36,7 @@
 	- [ ] Java
 	- [ ] Python
 - Bucket sort
-	- [ ] C
+	- [X] C
 	- [ ] C++
 	- [ ] Java
 	- [ ] Python

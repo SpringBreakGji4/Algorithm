@@ -4,7 +4,6 @@
 #include <string.h>
 #include <dirent.h>
 #define MAX 50000
-
 void insertion_sort(int *array, int size){
 	int tem,i,j,key,index;
 	for(i=1 ; i<size ; i++){
@@ -27,7 +26,7 @@ void print_array(int *array, int size){
 long current_timestamp(){
 	struct timespec time;
 	clock_gettime(CLOCK_MONOTONIC, &time);
-	return time.tv_nsec/1000;
+	return time.tv_nsec/1000+time.tv_sec*1000000;
 }	
 int check_array(int *array, int size){
 	for(int i=1 ; i<size ; i++){
