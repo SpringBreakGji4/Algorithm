@@ -1,6 +1,10 @@
 # Trees
 
-This folder is reserved for tree-based data structures and algorithms across multiple languages.
+This module contains tree-based data structures and algorithms across multiple languages.
+
+## Current focus
+
+- Trie / Prefix Tree
 
 ## Planned structure
 
@@ -9,12 +13,16 @@ This folder is reserved for tree-based data structures and algorithms across mul
 - `Python/`
 - `test_case/`
 
-## Candidate topics
+## Trie / Prefix Tree operations
 
-- Binary tree traversal
-- Binary search tree
-- Trie / Prefix tree
-- AVL tree
-- Heap / Priority queue
-- Segment tree
-- Fenwick tree
+- insert
+- search
+- prefix check (`startsWith`)
+- delete
+- autocomplete
+- count words with a prefix
+
+## Current status
+
+- Python Trie demo implemented
+- C and Java scaffolding ready
