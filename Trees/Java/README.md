@@ -1,31 +1,23 @@
-# Java Trie / Prefix Tree Demo
+# Java Trees Demos
 
 ## Build
 
 ```bash
 cd Java
-javac -d bin src/TrieDemo.java
+mkdir -p bin
+javac -d bin src/TrieDemo.java src/BSTDemo.java
 ```
 
-## Run
+## Run Trie / Prefix Tree
 
 ```bash
 cd Java
 java -cp bin TrieDemo
 ```
 
-## Run with a custom query file
+## Run Binary Search Tree
 
 ```bash
 cd Java
-java -cp bin TrieDemo ../test_case/trie_queries.txt
+java -cp bin BSTDemo
 ```
-
-## Supported commands
-
-- `insert <word>`
-- `search <word>`
-- `prefix <prefix>`
-- `delete <word>`
-- `autocomplete <prefix>`
-- `countprefix <prefix>`

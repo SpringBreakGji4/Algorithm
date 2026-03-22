@@ -1,4 +1,4 @@
-# C Trie / Prefix Tree Demo
+# C Trees Demos
 
 ## Build
 
@@ -7,25 +7,16 @@ cd C
 make
 ```
 
-## Run
+## Run Trie / Prefix Tree
 
 ```bash
 cd C
-make run
+make run-trie
 ```
 
-## Run with a custom query file
+## Run Binary Search Tree
 
 ```bash
 cd C
-./bin/trie_demo ../test_case/trie_queries.txt
+make run-bst
 ```
-
-## Supported commands
-
-- `insert <word>`
-- `search <word>`
-- `prefix <prefix>`
-- `delete <word>`
-- `autocomplete <prefix>`
-- `countprefix <prefix>`

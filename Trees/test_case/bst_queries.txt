@@ -1,0 +1,21 @@
+insert 50
+insert 30
+insert 70
+insert 20
+insert 40
+insert 60
+insert 80
+search 40
+search 25
+min
+max
+inorder
+preorder
+postorder
+delete 20
+inorder
+delete 30
+inorder
+delete 50
+inorder
+height

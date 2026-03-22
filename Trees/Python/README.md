@@ -1,24 +1,22 @@
-# Python Trie / Prefix Tree Demo
+# Python Trees Demos
 
-## Run
+## Trie / Prefix Tree
 
 ```bash
 cd Python
 python3 trie_demo.py
 ```
 
-## Run with a custom query file
+## Binary Search Tree
 
 ```bash
 cd Python
-python3 trie_demo.py ../test_case/trie_queries.txt
+python3 bst_demo.py
 ```
 
-## Supported commands
+## Run with custom query files
 
-- `insert <word>`
-- `search <word>`
-- `prefix <prefix>`
-- `delete <word>`
-- `autocomplete <prefix>`
-- `countprefix <prefix>`
+```bash
+python3 trie_demo.py ../test_case/trie_queries.txt
+python3 bst_demo.py ../test_case/bst_queries.txt
+```
