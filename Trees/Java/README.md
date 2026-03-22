@@ -5,7 +5,7 @@
 ```bash
 cd Java
 mkdir -p bin
-javac -d bin src/TrieDemo.java src/BSTDemo.java src/HeapDemo.java
+javac -d bin src/TrieDemo.java src/BSTDemo.java src/HeapDemo.java src/AVLDemo.java
 ```
 
 ## Run Trie / Prefix Tree
@@ -24,4 +24,10 @@ java -cp bin BSTDemo
 
 ```bash
 java -cp bin HeapDemo
+```
+
+## Run AVL Tree
+
+```bash
+java -cp bin AVLDemo
 ```

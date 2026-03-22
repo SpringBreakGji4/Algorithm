@@ -24,3 +24,9 @@ make run-bst
 ```bash
 make run-heap
 ```
+
+## Run AVL Tree
+
+```bash
+make run-avl
+```
