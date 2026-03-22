@@ -10,13 +10,17 @@ make
 ## Run Trie / Prefix Tree
 
 ```bash
-cd C
 make run-trie
 ```
 
 ## Run Binary Search Tree
 
 ```bash
-cd C
 make run-bst
+```
+
+## Run Heap / Priority Queue
+
+```bash
+make run-heap
 ```

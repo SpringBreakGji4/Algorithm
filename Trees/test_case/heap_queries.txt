@@ -1,0 +1,17 @@
+push 40
+push 10
+push 30
+push 50
+push 20
+peek
+size
+print
+pop
+print
+push 5
+peek
+heapify 7 3 9 1 8 2
+print
+pop
+peek
+size
