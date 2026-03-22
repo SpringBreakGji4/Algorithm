@@ -1,48 +1,26 @@
-# Algorithm
-## Sorting
-- Bubble sort
-- Insertion sort
-- Selection sort
-- Shell sort
-- Merge sort
-- Quick sort
-- Heap sort
-- Bucket sort
-- Radix sort
-## Tree
-- Binary tree
-- Prefix tree
-- Expression tree
-- Binary search tree
-- AVL tree
-- Splay tree
-- B tree
-- Red-Black tree
-## Heap
-- Binary heap
-- d-heap
-- Leftist heap
-- Skew heap
-- Binomial queues
-## Graph
-- Topological sort
-- Breadth-first search
-- Depth-first search
-- Dijkstra algorithm
-- Maximum flow algorithm
-- Prim's algorithm 
-- Kruskal's algorithm
-## Cryptography
-### Symmetric cryptography
-- Shift cipher
-- Mono-alphabetic substitution cipher
-- Polyalphabetic substitution cipher
-- Stream cipher (One-Time pad)
-- Block cipher
-  - DES
-  - AES ECB
-  - AES CBC
-  - AES CTR
-### Asymmetric cryptography
-- ElGamal Encryption
-- RSA
+# Algorithms
+
+A multi-language algorithms playground organized by topic.
+
+## Topics
+
+- `Sorting/` - sorting algorithms and benchmark comparisons
+- `Searching/` - search algorithms
+- `Trees/` - tree-based data structures and algorithms
+- `Graphs/` - graph algorithms
+- `DynamicProgramming/` - dynamic programming problems
+- `Strings/` - string algorithms
+
+## Language layout per topic
+
+Each topic is intended to contain:
+
+- `C/`
+- `Java/`
+- `Python/`
+- `test_case/`
+
+## Status
+
+- `Sorting/` is implemented
+- other topics are scaffolded and ready for work
