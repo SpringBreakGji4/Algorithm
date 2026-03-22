@@ -47,11 +47,15 @@ public class SortingDemo {
         if (args.length > 0) {
             String mode = args[0].toLowerCase(Locale.ROOT);
             if (mode.equals("all")) {
-                runAllAlgorithms(testCases, repeats, true);
+                runAllAlgorithms(testCases, repeats, true, false);
                 return;
             }
             if (mode.equals("benchmark")) {
-                runAllAlgorithms(testCases, repeats, false);
+                runAllAlgorithms(testCases, repeats, false, false);
+                return;
+            }
+            if (mode.equals("benchmark-tsv")) {
+                runAllAlgorithms(testCases, repeats, false, true);
                 return;
             }
 
@@ -83,11 +87,11 @@ public class SortingDemo {
                 break;
             }
             if (choice.equals("a")) {
-                runAllAlgorithms(testCases, repeats, true);
+                runAllAlgorithms(testCases, repeats, true, false);
                 continue;
             }
             if (choice.equals("b")) {
-                runAllAlgorithms(testCases, repeats, false);
+                runAllAlgorithms(testCases, repeats, false, false);
                 continue;
             }
 
@@ -169,12 +173,16 @@ public class SortingDemo {
         }
     }
 
-    private static void runAllAlgorithms(List<Path> testCases, int repeats, boolean verbose) throws IOException {
+    private static void runAllAlgorithms(List<Path> testCases, int repeats, boolean verbose, boolean csvOnly) throws IOException {
         List<BenchmarkResult> results = new ArrayList<>();
         for (Algorithm algorithm : ALGORITHMS) {
             results.add(runAlgorithm(algorithm, testCases, repeats, verbose));
         }
-        printSummary(results, repeats);
+        if (csvOnly) {
+            printCsv(results, repeats, "Java");
+        } else {
+            printSummary(results, repeats);
+        }
     }
 
     private static BenchmarkResult runAlgorithm(Algorithm algorithm, List<Path> testCases, int repeats, boolean verbose) throws IOException {
@@ -247,6 +255,22 @@ public class SortingDemo {
                 result.algorithm().notes());
         }
         System.out.println();
+    }
+
+    private static void printCsv(List<BenchmarkResult> results, int repeats, String language) {
+        System.out.println("language\tkey\tname\tcomplexity\tnotes\taverage_us\ttotal_us\tpassed\trepeats");
+        for (BenchmarkResult result : results) {
+            System.out.printf("%s\t%s\t%s\t%s\t%s\t%d\t%d\t%s\t%d%n",
+                language,
+                result.algorithm().key(),
+                result.algorithm().name(),
+                result.algorithm().complexity(),
+                result.algorithm().notes(),
+                nanosToMicros(result.averageNanos()),
+                nanosToMicros(result.totalNanos()),
+                result.passed() ? "true" : "false",
+                repeats);
+        }
     }
 
     private static long nanosToMicros(long nanos) {

@@ -313,9 +313,22 @@ def print_summary(results: list[BenchmarkResult], repeats: int) -> None:
     print()
 
 
-def run_all_algorithms(test_cases: list[Path], repeats: int, verbose: bool) -> None:
+def print_csv(results: list[BenchmarkResult], repeats: int, language: str) -> None:
+    print("language\tkey\tname\tcomplexity\tnotes\taverage_us\ttotal_us\tpassed\trepeats")
+    for result in results:
+        print(
+            f"{language}\t{result.algorithm.key}\t{result.algorithm.name}\t{result.algorithm.complexity}\t"
+            f"{result.algorithm.notes}\t{result.average_ns // 1000}\t{result.total_ns // 1000}\t"
+            f"{'true' if result.passed else 'false'}\t{repeats}"
+        )
+
+
+def run_all_algorithms(test_cases: list[Path], repeats: int, verbose: bool, csv_only: bool = False) -> None:
     results = [run_algorithm(algorithm, test_cases, repeats, verbose) for algorithm in ALGORITHMS]
-    print_summary(results, repeats)
+    if csv_only:
+        print_csv(results, repeats, "Python")
+    else:
+        print_summary(results, repeats)
 
 
 def find_algorithm(key: str) -> Algorithm | None:
@@ -359,6 +372,9 @@ def main() -> int:
         if mode == "benchmark":
             run_all_algorithms(test_cases, repeats, False)
             return 0
+        if mode == "benchmark-tsv":
+            run_all_algorithms(test_cases, repeats, False, True)
+            return 0
         algorithm = find_algorithm(mode)
         if algorithm is not None:
             run_algorithm(algorithm, test_cases, repeats, True)
@@ -393,3 +409,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+temExit(main())

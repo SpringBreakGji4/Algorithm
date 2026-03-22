@@ -143,7 +143,7 @@ static benchmark_result run_algorithm(const algorithm_entry *algorithm, char tes
                 case_passed = 0;
                 result.passed = 0;
             }
-            if(elapsed > 0){
+            if(elapsed >= 0){
                 case_total += elapsed;
                 result.total_us += elapsed;
             }
@@ -190,6 +190,22 @@ static void print_summary(benchmark_result *results, int count, int repeats){
     printf("\n");
 }
 
+static void print_tsv(benchmark_result *results, int count, const char *language, int repeats){
+    printf("language\tkey\tname\tcomplexity\tnotes\taverage_us\ttotal_us\tpassed\trepeats\n");
+    for(int i = 0; i < count; i++){
+        printf("%s\t%s\t%s\t%s\t%s\t%lld\t%lld\t%s\t%d\n",
+               language,
+               results[i].algorithm->key,
+               results[i].algorithm->name,
+               results[i].algorithm->complexity,
+               results[i].algorithm->notes,
+               results[i].average_us,
+               results[i].total_us,
+               results[i].passed ? "true" : "false",
+               repeats);
+    }
+}
+
 static void print_menu(void){
     int count = (int)(sizeof(algorithms) / sizeof(algorithms[0]));
 
@@ -224,15 +240,12 @@ static int parse_repeats(const char *value){
     return (int)parsed;
 }
 
-static void run_all_algorithms(char test_cases[][MAX_PATH_LEN], int case_count, int repeats, int verbose){
+static void collect_all_results(char test_cases[][MAX_PATH_LEN], int case_count, int repeats, int verbose, benchmark_result *results){
     int algorithm_count = (int)(sizeof(algorithms) / sizeof(algorithms[0]));
-    benchmark_result results[sizeof(algorithms) / sizeof(algorithms[0])];
 
     for(int i = 0; i < algorithm_count; i++){
         results[i] = run_algorithm(&algorithms[i], test_cases, case_count, repeats, verbose);
     }
-
-    print_summary(results, algorithm_count, repeats);
 }
 
 int main(int argc, char **argv){
@@ -255,11 +268,21 @@ int main(int argc, char **argv){
 
     if(argc > 1){
         if(strcmp(argv[1], "all") == 0){
-            run_all_algorithms(test_cases, case_count, repeats, 1);
+            benchmark_result results[sizeof(algorithms) / sizeof(algorithms[0])];
+            collect_all_results(test_cases, case_count, repeats, 1, results);
+            print_summary(results, algorithm_count, repeats);
             return 0;
         }
         if(strcmp(argv[1], "benchmark") == 0){
-            run_all_algorithms(test_cases, case_count, repeats, 0);
+            benchmark_result results[sizeof(algorithms) / sizeof(algorithms[0])];
+            collect_all_results(test_cases, case_count, repeats, 0, results);
+            print_summary(results, algorithm_count, repeats);
+            return 0;
+        }
+        if(strcmp(argv[1], "benchmark-tsv") == 0){
+            benchmark_result results[sizeof(algorithms) / sizeof(algorithms[0])];
+            collect_all_results(test_cases, case_count, repeats, 0, results);
+            print_tsv(results, algorithm_count, "C", repeats);
             return 0;
         }
 
@@ -288,11 +311,15 @@ int main(int argc, char **argv){
             break;
         }
         if(strcmp(choice, "a") == 0){
-            run_all_algorithms(test_cases, case_count, repeats, 1);
+            benchmark_result results[sizeof(algorithms) / sizeof(algorithms[0])];
+            collect_all_results(test_cases, case_count, repeats, 1, results);
+            print_summary(results, algorithm_count, repeats);
             continue;
         }
         if(strcmp(choice, "b") == 0){
-            run_all_algorithms(test_cases, case_count, repeats, 0);
+            benchmark_result results[sizeof(algorithms) / sizeof(algorithms[0])];
+            collect_all_results(test_cases, case_count, repeats, 0, results);
+            print_summary(results, algorithm_count, repeats);
             continue;
         }
 
