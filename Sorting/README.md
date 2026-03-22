@@ -6,9 +6,8 @@ This repository is organized so each programming language can live in its own fo
 
 - `C/` - C implementation
 - `Java/` - Java implementation
+- `Python/` - Python implementation
 - `test_case/` - shared input datasets
-- future folders can be added later, for example:
-  - `Python/`
 
 ## C project structure
 
@@ -25,6 +24,12 @@ Inside `Java/`:
 
 - `src/SortingDemo.java` - interactive demo, sorting implementations, and benchmark summary
 - `bin/` - compiled class files
+
+## Python project structure
+
+Inside `Python/`:
+
+- `sorting_demo.py` - interactive demo, sorting implementations, and benchmark summary
 
 ## Shared test cases
 
@@ -49,7 +54,15 @@ java -cp bin SortingDemo all
 java -cp bin SortingDemo benchmark 5
 ```
 
-## Features available in both demos
+## Run the Python demo
+
+```bash
+cd Python
+python3 sorting_demo.py all
+python3 sorting_demo.py benchmark 5
+```
+
+## Features available across implementations
 
 - run one sorting algorithm
 - run all algorithms
