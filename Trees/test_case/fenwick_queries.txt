@@ -1,0 +1,12 @@
+build 1 2 3 4 5
+print
+prefix 3
+range 2 4
+update 3 2
+print
+prefix 3
+range 2 4
+set 5 20
+print
+prefix 5
+range 4 5

@@ -30,3 +30,9 @@ make run-heap
 ```bash
 make run-avl
 ```
+
+## Run Fenwick Tree
+
+```bash
+make run-fenwick
+```

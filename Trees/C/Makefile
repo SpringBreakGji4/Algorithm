@@ -5,14 +5,16 @@ TRIE_TARGET := $(BIN_DIR)/trie_demo
 BST_TARGET := $(BIN_DIR)/bst_demo
 HEAP_TARGET := $(BIN_DIR)/heap_demo
 AVL_TARGET := $(BIN_DIR)/avl_demo
+FENWICK_TARGET := $(BIN_DIR)/fenwick_demo
 TRIE_SOURCES := src/main.c src/trie.c
 BST_SOURCES := src/bst_main.c src/bst.c
 HEAP_SOURCES := src/heap_main.c src/heap.c
 AVL_SOURCES := src/avl_main.c src/avl.c
+FENWICK_SOURCES := src/fenwick_main.c src/fenwick.c
 
-.PHONY: all clean run-trie run-bst run-heap run-avl
+.PHONY: all clean run-trie run-bst run-heap run-avl run-fenwick
 
-all: $(TRIE_TARGET) $(BST_TARGET) $(HEAP_TARGET) $(AVL_TARGET)
+all: $(TRIE_TARGET) $(BST_TARGET) $(HEAP_TARGET) $(AVL_TARGET) $(FENWICK_TARGET)
 
 $(TRIE_TARGET): $(TRIE_SOURCES) include/trie.h | $(BIN_DIR)
 	$(CC) $(CFLAGS) $(TRIE_SOURCES) -o $(TRIE_TARGET)
@@ -25,6 +27,9 @@ $(HEAP_TARGET): $(HEAP_SOURCES) include/heap.h | $(BIN_DIR)
 
 $(AVL_TARGET): $(AVL_SOURCES) include/avl.h | $(BIN_DIR)
 	$(CC) $(CFLAGS) $(AVL_SOURCES) -o $(AVL_TARGET)
+
+$(FENWICK_TARGET): $(FENWICK_SOURCES) include/fenwick.h | $(BIN_DIR)
+	$(CC) $(CFLAGS) $(FENWICK_SOURCES) -o $(FENWICK_TARGET)
 
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
@@ -40,6 +45,9 @@ run-heap: $(HEAP_TARGET)
 
 run-avl: $(AVL_TARGET)
 	./$(AVL_TARGET)
+
+run-fenwick: $(FENWICK_TARGET)
+	./$(FENWICK_TARGET)
 
 clean:
 	rm -rf $(BIN_DIR)
