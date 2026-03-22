@@ -6,15 +6,17 @@ BST_TARGET := $(BIN_DIR)/bst_demo
 HEAP_TARGET := $(BIN_DIR)/heap_demo
 AVL_TARGET := $(BIN_DIR)/avl_demo
 FENWICK_TARGET := $(BIN_DIR)/fenwick_demo
+SEGMENT_TARGET := $(BIN_DIR)/segment_tree_demo
 TRIE_SOURCES := src/main.c src/trie.c
 BST_SOURCES := src/bst_main.c src/bst.c
 HEAP_SOURCES := src/heap_main.c src/heap.c
 AVL_SOURCES := src/avl_main.c src/avl.c
 FENWICK_SOURCES := src/fenwick_main.c src/fenwick.c
+SEGMENT_SOURCES := src/segment_tree_main.c src/segment_tree.c
 
-.PHONY: all clean run-trie run-bst run-heap run-avl run-fenwick
+.PHONY: all clean run-trie run-bst run-heap run-avl run-fenwick run-segment
 
-all: $(TRIE_TARGET) $(BST_TARGET) $(HEAP_TARGET) $(AVL_TARGET) $(FENWICK_TARGET)
+all: $(TRIE_TARGET) $(BST_TARGET) $(HEAP_TARGET) $(AVL_TARGET) $(FENWICK_TARGET) $(SEGMENT_TARGET)
 
 $(TRIE_TARGET): $(TRIE_SOURCES) include/trie.h | $(BIN_DIR)
 	$(CC) $(CFLAGS) $(TRIE_SOURCES) -o $(TRIE_TARGET)
@@ -30,6 +32,9 @@ $(AVL_TARGET): $(AVL_SOURCES) include/avl.h | $(BIN_DIR)
 
 $(FENWICK_TARGET): $(FENWICK_SOURCES) include/fenwick.h | $(BIN_DIR)
 	$(CC) $(CFLAGS) $(FENWICK_SOURCES) -o $(FENWICK_TARGET)
+
+$(SEGMENT_TARGET): $(SEGMENT_SOURCES) include/segment_tree.h | $(BIN_DIR)
+	$(CC) $(CFLAGS) $(SEGMENT_SOURCES) -o $(SEGMENT_TARGET)
 
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
@@ -48,6 +53,9 @@ run-avl: $(AVL_TARGET)
 
 run-fenwick: $(FENWICK_TARGET)
 	./$(FENWICK_TARGET)
+
+run-segment: $(SEGMENT_TARGET)
+	./$(SEGMENT_TARGET)
 
 clean:
 	rm -rf $(BIN_DIR)

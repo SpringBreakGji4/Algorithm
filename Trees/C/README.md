@@ -36,3 +36,9 @@ make run-avl
 ```bash
 make run-fenwick
 ```
+
+## Run Segment Tree
+
+```bash
+make run-segment
+```

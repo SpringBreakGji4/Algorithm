@@ -1,0 +1,10 @@
+build 1 3 5 7 9 11
+print
+query 2 5
+query 1 6
+update 3 6
+print
+query 2 5
+set 6 4
+print
+query 4 6

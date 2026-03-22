@@ -30,6 +30,12 @@ python3 avl_demo.py
 python3 fenwick_demo.py
 ```
 
+## Segment Tree
+
+```bash
+python3 segment_tree_demo.py
+```
+
 ## Run with custom query files
 
 ```bash
@@ -38,4 +44,5 @@ python3 bst_demo.py ../test_case/bst_queries.txt
 python3 heap_demo.py ../test_case/heap_queries.txt
 python3 avl_demo.py ../test_case/avl_queries.txt
 python3 fenwick_demo.py ../test_case/fenwick_queries.txt
+python3 segment_tree_demo.py ../test_case/segment_tree_queries.txt
 ```
