@@ -49,6 +49,24 @@ Trees/
 
 A Trie stores strings character by character in a tree.
 
+#### ASCII view
+
+```text
+(root)
+  |
+  a
+  |
+  p
+  |
+  p*
+  |
+  l
+  |
+  e*
+```
+
+`*` marks the end of a complete word.
+
 #### Core idea
 - each node represents a character position in a word
 - edges connect characters in sequence
@@ -88,6 +106,16 @@ A BST stores values so that:
 - every value in the left subtree is smaller than the node
 - every value in the right subtree is larger than the node
 
+#### ASCII view
+
+```text
+        50
+       /  \
+     30    70
+    / \    / \
+  20  40  60  80
+```
+
 #### Core idea
 This ordering makes searching efficient when the tree is reasonably balanced.
 
@@ -121,6 +149,18 @@ Example:
 ### 3. Heap / Priority Queue
 
 The current implementation uses a **min-heap**.
+
+#### ASCII view
+
+```text
+        10
+      /    \
+    20      30
+   /  \    /  \
+ 40   50  60   70
+
+Array form: [10, 20, 30, 40, 50, 60, 70]
+```
 
 #### Core idea
 A min-heap is a complete binary tree where:
@@ -159,6 +199,18 @@ Array relationships:
 ### 4. AVL Tree
 
 An AVL tree is a **self-balancing BST**.
+
+#### ASCII view
+
+```text
+Before rebalancing:          After right rotation:
+
+        30                           20
+       /                            /  \
+     20                           10    30
+    /
+  10
+```
 
 #### Core idea
 After insertions and deletions, it checks the balance factor:
@@ -200,6 +252,24 @@ If the tree becomes too unbalanced, it performs rotations:
 
 A Fenwick Tree is a compact structure for prefix sums.
 
+#### ASCII view
+
+```text
+Index:  1   2   3   4   5   6   7   8
+Value: a1  a2  a3  a4  a5  a6  a7  a8
+Tree:  t1  t2  t3  t4  t5  t6  t7  t8
+
+Covered ranges:
+t1 -> [1]
+t2 -> [1..2]
+t3 -> [3]
+t4 -> [1..4]
+t5 -> [5]
+t6 -> [5..6]
+t7 -> [7]
+t8 -> [1..8]
+```
+
 #### Core idea
 It stores partial sums in a way that lets you:
 - update one element quickly
@@ -235,6 +305,18 @@ Index movement pattern:
 ### 6. Segment Tree
 
 A Segment Tree stores information about ranges of an array.
+
+#### ASCII view
+
+```text
+                 [0..7]
+               /        \
+           [0..3]      [4..7]
+          /    \       /    \
+      [0..1] [2..3] [4..5] [6..7]
+      /  \    /  \   /  \    /  \
+    [0][1] [2][3] [4][5] [6][7]
+```
 
 #### Core idea
 Each node represents a segment of the array.

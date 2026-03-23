@@ -1,0 +1,22 @@
+language,normalized_key,normalized_name,complexity,average_us,total_us,passed,repeats
+C,shell,Shell sort,~O(n log n) to O(n^2),587,2349,true,1
+C,merge,Merge sort,O(n log n),308,1235,true,1
+C,heap,Heap sort,O(n log n),437,1748,true,1
+C,quick,Quick sort,avg O(n log n),372,1489,true,1
+C,radix,Radix sort,O(d(n+b)),66,266,true,1
+C,bucket,Bucket sort,avg O(n+k),330,1321,true,1
+C,baseline,Standard library sort,impl-dependent,482,1930,true,1
+Java,shell,Shell sort,~O(n log n) to O(n^2),1274,5099,true,1
+Java,merge,Merge sort,O(n log n),748,2994,true,1
+Java,heap,Heap sort,O(n log n),1355,5421,true,1
+Java,quick,Quick sort,avg O(n log n),837,3349,true,1
+Java,radix,Radix sort,O(d(n+b)),763,3053,true,1
+Java,bucket,Bucket sort,avg O(n+k),1955,7821,true,1
+Java,baseline,Standard library sort,impl-dependent,982,3930,true,1
+Python,shell,Shell sort,~O(n log n) to O(n^2),26070,104280,true,1
+Python,merge,Merge sort,O(n log n),14353,57413,true,1
+Python,heap,Heap sort,O(n log n),24417,97669,true,1
+Python,quick,Quick sort,avg O(n log n),8602,34411,true,1
+Python,radix,Radix sort,O(d(n+b)),6707,26828,true,1
+Python,bucket,Bucket sort,avg O(n+k),2710,10843,true,1
+Python,baseline,Standard library sort,impl-dependent,727,2911,true,1
